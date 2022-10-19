@@ -24,6 +24,12 @@ Route::get('/data/{data?}', function ($data = "Kosong"){
     return "Isi Parameter = " . $data;
 });
 
-Route::get('/data-diri/{nrp}/{nama}', function ($nrp, $nama) {
+Route::get('/data/{nrp}/{nama}', function ($nrp, $nama) {
     return "Hello " . $nama . "</br>"  . " NRP : " . $nrp;
 })->where('nrp', '[0-9]+') ->where('nama', '[A-Za-z]+');
+
+Route::get('/person', 'PersonController@index');
+
+Route::get('/person/show/{param}', 'PersonController@show');
+
+Route::resource('/student', 'StudentController');
