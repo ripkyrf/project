@@ -29,7 +29,14 @@ Route::get('/data/{nrp}/{nama}', function ($nrp, $nama) {
 })->where('nrp', '[0-9]+') ->where('nama', '[A-Za-z]+');
 
 Route::get('/person', 'PersonController@index');
+Route::get('/person/send-data', 'PersonController@sendData');
+Route::get('/person/mycourse/{course}/{task}/{quiz}/{mid_ter}/{final}', 'PersonController@myCourse');
+Route::get('/person/data', 'PersonController@data');
 
 Route::get('/person/show/{param}', 'PersonController@show');
 
 Route::resource('/student', 'StudentController');
+
+Route::get('/homepage', function () {
+    return view('home' , ["name" => "Ripky Rizkia F"]);
+});
