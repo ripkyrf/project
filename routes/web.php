@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/beranda', function () {
+    return view('layouts/app');
+});
 Route::get('/name/{name}', function ($name) {
     return "Hello " . $name;
 })->where('name', '[A-Za-z]+');
@@ -40,3 +43,7 @@ Route::resource('/student', 'StudentController');
 Route::get('/homepage', function () {
     return view('home' , ["name" => "Ripky Rizkia F"]);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
